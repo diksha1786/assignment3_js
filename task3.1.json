@@ -1,0 +1,99 @@
+function tax_Calculation(count,ammount)       //function to calculate the the deducted amount and the amount after deduction
+{
+    collection.type=count;
+    collection.Ammount=ammount;
+    for(var i=0;i<tax.length;i++)             //iterating the data so that all the type will be iterate
+    {
+        if(tax[i].type==count)              //checking if the type which is given in the data is equal to the count which is passed in the function
+        {
+            var deduction=(ammount*tax[i].percentage)/100;   //calculating the deducted amount by multiplying amount which we are passing in the function and percentage which is given in the data
+            var Amount_after_deduction=ammount-deduction;    //calculating the amount after deduction by substracting the amount which is passed in the function and the deductedamount calculated above
+            collection.Percentage=tax[i].percentage;       //percentage which is given in the tax data is retrieved here so that we can return the data
+            collection.DeductedAmount=deduction;          //deducted amount calculated above is retrieved here to return and print
+            collection.Amount_After_Deduction=Amount_after_deduction;
+            return collection;
+        }
+        else
+        {                                   //default values are passed here if no value is there default value will be there
+            deduction=0;
+            Amount_after_deduction=ammount;
+            collection.Percentage=0;
+            collection.DeductedAmount=deduction;
+            collection.Amount_After_Deduction=ammount;
+        }
+    }
+    return collection;
+}
+
+var tax=[                                                         // data in array object type
+    {
+        "type":1,
+        "percentage":20
+    },
+    {
+        "type":2,
+        "percentage":75
+    },
+    {
+        "type":3,
+        "percentage":90
+    },
+    {
+        "type":4,
+        "percentage":6
+    },
+    {
+        "type":5,
+        "percentage":9
+    },
+    {
+        "type":7,
+        "percentage":84
+    },
+    {
+        "type":8,
+        "percentage":45
+    },
+    {
+        "type":9,
+        "percentage":67
+    },
+    {
+        "type":10,
+        "percentage":34
+    },
+
+
+
+]
+var collection=[
+    {
+        "type":0,
+        "Ammount":0,
+        "Percentage":0,
+        "DeductedAmount":0,
+        "Amount_After_Deduction":0
+    }
+]
+
+var taxes=[];                              //calling the function here
+taxes=tax_Calculation(1,20000);
+console.log(taxes);
+taxes=tax_Calculation(2,60000);
+console.log(taxes);
+taxes=tax_Calculation(3,978004);
+console.log(taxes);
+taxes=tax_Calculation(4,567890);
+console.log(taxes);
+taxes=tax_Calculation(5,426890);
+console.log(taxes);
+taxes=tax_Calculation(6,908764);
+console.log(taxes);
+taxes=tax_Calculation(7,13579);
+console.log(taxes);
+taxes=tax_Calculation(8,247908);
+console.log(taxes);
+taxes=tax_Calculation(9,678432);
+console.log(taxes);
+taxes=tax_Calculation(10,874327985);
+console.log(taxes);

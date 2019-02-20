@@ -1,0 +1,14 @@
+
+function add(a){ 
+    return function (b){
+        return a+b;
+        } 
+        return function (c){
+            return a+b+c;
+        }
+    }
+
+    add(2)(3)(7)       //5 will be output
+
+
+
